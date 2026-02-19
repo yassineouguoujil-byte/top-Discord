@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top 10 des serveurs Discord</title>
+  <style>
+    /* Barre de navigation */
+    nav {
+      background: #2C2F33;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav h2 {
+      margin: 0;
+      font-size: 1.6em;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: #aaa;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #e0e0e0;
+      font-size: 1.1em;
+      line-height: 1.5em;
+    }
+
+    /* Conteneur principal */
+    .main {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 40px;
+    }
+
+    @media(min-width: 900px) {
+      .main {
+        flex-direction: row;
+      }
+    }
+
+    /* Liste des serveurs */
+    .server-list {
+      flex: 1;
+    }
+
+    .server {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      margin: 12px 0;
+      border-radius: 12px;
+      background: #2C2F33;
+      transition: transform 0.3s, background 0.3s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .server:hover {
+      transform: scale(1.03);
+      background: #40444B;
+    }
+
+    .server-info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .server-name {
+      font-size: 1.3em;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .server-members {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #fff;
+    }
+
+    .progress-bar {
+      height: 10px;
+      border-radius: 5px;
+      background: #40444B;
+      overflow: hidden;
+      width: 300px;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0;
+      border-radius: 5px;
+      background: #fff;
+      transition: width 1.5s;
+    }
+
+    .stars {
+      margin-top: 5px;
+      color: #FFD700;
+      font-size: 1em;
+    }
+
+    /* Histoire */
+    .histoire {
+      flex: 1;
+      padding: 20px;
+      background: #2C2F33;
+      border-radius: 12px;
+      line-height: 1.6em;
+      color: #e0e0e0;
+      min-width: 300px;
+    }
+
+    .histoire h2 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .histoire p {
+      margin-bottom: 10px;
+    }
+
+    /* Section bas dépliable pour A propos et Contact */
+    .bottom-section {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto 50px auto;
+      background: #2C2F33;
+      border-radius: 12px;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.7s ease;
+      padding: 0 20px;
+      color: #e0e0e0;
+    }
+
+    .bottom-section.active {
+      max-height: 500px; /* assez grand pour voir le contenu */
+      padding: 20px;
+    }
+
+    .bottom-section h3 {
+      margin-top: 0;
+      color: #43b581;
+    }
+
+    .bottom-section p {
+      margin-bottom: 15px;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #0d0d2b;
+      color: #fff;
+    }
+
+    nav {
+      background: #1f1f2e;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #444;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav h2 { color: #fff; }
+    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    nav ul li a {
+      color: #ccc; text-decoration: none; font-weight: bold; cursor: pointer;
+      transition: all 0.2s;
+    }
+    nav ul li a:hover { color: #fff; transform: scale(1.1); }
+
+    .header-section {
+      text-align: center; padding: 40px 20px;
+    }
+    .header-section h1 { font-size: 2.6em; margin: 0; }
+    .header-section img { max-width: 200px; margin-top: 15px; }
+
+    .main {
+      display: flex; flex-direction: column; width: 90%; max-width: 1200px;
+      margin: auto; gap: 40px;
+    }
+    @media(min-width:900px) {
+      .main { flex-direction: row; }
+    }
+
+    .server-list {
+      flex: 1;
+    }
+    .server {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 20px; margin: 12px 0; border-radius: 10px;
+      background: #1e1e36; transition: 0.3s;
+    }
+    .server:hover { background: #2a2a46; }
+
+    .server-name { font-size: 1.3em; font-weight: bold; }
+    .server-members { font-weight: bold; font-size: 1.1em; }
+
+    .progress-bar {
+      height: 10px; border-radius: 5px; background: #444; width: 260px;
+      overflow: hidden; margin-top: 5px;
+    }
+    .progress {
+      height: 100%; width: 0; border-radius: 5px;
+      background: #eee; transition: width 1.4s ease;
+    }
+
+    .stars { color: gold; font-size: 1em; margin-top: 4px; }
+
+    .section-box {
+      background: #1f1f2e; border-radius: 10px; padding: 20px;
+      margin: 20px 0;
+    }
+    .section-box h3 { color: #4ea1ff; margin-top: 0; }
+    .section-box p { color: #ddd; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h2>Discord Top 📊</h2>
+    <ul>
+      <li><a id="homeBtn">Home</a></li>
+      <li><a id="aboutBtn">À propos</a></li>
+      <li><a id="contactBtn">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-section">
+    <h1>Les serveurs Discord les plus populaires</h1>
+    <img src="https://pngimg.com/uploads/discord/discord_PNG8.png" alt="Discord Logo">
+  </div>
+
+  <div class="main">
+    <div class="server-list">
+      <!-- Top 10 serveurs -->
+      <div class="server">
+        <div>
+          <div class="server-name">🛡️ Guild Elite</div>
+          <div class="progress-bar"><div class="progress" style="width:100%"></div></div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="server-members"></div>
+      </div>
+
+      <div class="server">
+        <div>
+          <div class="server-name">🎮 Gaming Zone</div>
+          <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="server-members"></div>
+      </div>
+
+      <!-- ... répète pour les 8 autres ... -->
+
+    </div>
+
+    <!-- À propos & Contact container -->
+    <div class="section-box" id="aboutSection">
+      <h3>📘 À propos</h3>
+      <p>Ce site met en avant les serveurs Discord qui rassemblent les plus grandes communautés de joueurs et créateurs. Chaque serveur est une place de partage d’intérêts, d’événements et de discussions.</p>
+      <p>Les communautés Discord permettent à des personnes du monde entier de collaborer, jouer et discuter ensemble 24/7 sur tous types de sujets.</p>
+    </div>
+
+  </div>
+
+  <!-- Contact Section en bas -->
+  <div class="section-box" id="contactSection" style="display:none;">
+    <h3>📬 Contact</h3>
+    <p>Tu veux proposer ton serveur ou nous demander quelque chose ?</p>
+    <p>Envoie un email à : <a href="mailto:yassineouguoujil@gmail.com" style="color:#7fcaff;">yassineouguoujil@gmail.com</a></p>
+    <p>Rejoins notre serveur Discord officiel pour en parler 📌</p>
+    <p><a href="#" style="color:#7fcaff;">👉 Clique ici pour rejoindre</a></p>
+  </div>
+
+  <script>
+    const aboutBtn = document.getElementById('aboutBtn');
+    const contactBtn = document.getElementById('contactBtn');
+    const aboutSection = document.getElementById('aboutSection');
+    const contactSection = document.getElementById('contactSection');
+
+    aboutBtn.addEventListener('click', () => {
+      aboutSection.style.display = 'block';
+      contactSection.style.display = 'none';
+    });
+    contactBtn.addEventListener('click', () => {
+      contactSection.style.display = 'block';
+      aboutSection.style.display = 'none';
+    });
+
+    window.onload = () => {
+      const bars = document.querySelectorAll('.progress');
+      bars.forEach(bar => {
+        const w = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => { bar.style.width = w; }, 150);
+      });
+    };
+  </script>
+
+  <!-- Header -->
+  <header>
+    <h1>Top 10 des serveurs Discord</h1>
+    <p>Découvrez les serveurs les plus populaires, là où les joueurs se rencontrent, discutent, montent en niveaux et créent des communautés passionnantes. Chaque serveur a sa propre histoire et attire des milliers de membres chaque jour.</p>
+  </header>
+
+  <!-- Contenu principal -->
+  <div class="main">
+    <!-- Top 10 -->
+    <div class="server-list">
+      <div class="server">
+        <div class="server-info">
+          <div class="server-name">Midjourney</div>
+          <div class="progress-bar"><div class="progress" style="width:100%"></div></div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="server-members">~20 millions</div>
+      </div>
+
+      <div class="server">
+        <div class="server-info">
+          <div class="server-name">Viggle</div>
+          <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="server-members">~4–4.3 millions</div>
+      </div>
+
+      <div class="server">
+        <div class="server-info">
+          <div class="server-name">Marvel Rivals Official</div>
+          <div class="progress-bar"><div class="progress" style="width:80%"></div></div>
+          <div class="stars">⭐⭐⭐⭐</div>
+        </div>
+        <div class="server-members">~4.1 millions</div>
+      </div>
+
+      <div class="server">
+        <div class="server-info">
+          <div class="server-name">LimeWire</div>
+          <div class="progress-bar"><div class="progress" style="width:70%"></div></div>
+          <div class="stars">⭐⭐⭐⭐</div>
+        </div>
+        <div class="server-members">~2.2–2.3 millions</div>
+      </div>
+
+      <div class="server">
+        <div class="server-info">
+          <div class="server-name">Blox Fruits (Roblox)</div>
+          <div class="progress-bar"><div class="progress" style="width:60%"></div></div>
+          <div class="stars">⭐⭐⭐</div>
+        </div>
+        <div class="server-members">~1.7–2 millions</div>
+      </div>
+
+      <div class="server">
+        <div class="server-info">
+          <div class="server-name">Genshin Impact Official</div>
+          <div class="progress-bar"><div class="progress" style="width:50%"></div></div>
+          <div class="stars">⭐⭐⭐</div>
+        </div>
+        <div class="server-members">~1.6–2.1 millions</div>
+      </div>
+
+      <div class="server">
+        <div class="server-info">
+          <div class="server-name">Leonardo.ai</div>
+          <div class="progress-bar"><div class="progress" style="width:40%"></div></div>
+          <div class="stars">⭐⭐</div>
+        </div>
+        <div class="server-members">~1.8 millions</div>
+      </div>
+
+      <div class="server">
+        <div class="server-info">
+          <div class="server-name">All Star</div>
+          <div class="progress-bar"><div class="progress" style="width:30%"></div></div>
+          <div class="stars">⭐⭐</div>
+        </div>
+        <div class="server-members">~1.1–1.2 millions</div>
+      </div>
+
+      <div class="server">
+        <div class="server-info">
+          <div class="server-name">Valorant Official</div>
+          <div class="progress-bar"><div class="progress" style="width:20%"></div></div>
+          <div class="stars">⭐</div>
+        </div>
+        <div class="server-members">~1.1 millions</div>
+      </div>
+
+      <div class="server">
+        <div class="server-info">
+          <div class="server-name">Roblox Official</div>
+          <div class="progress-bar"><div class="progress" style="width:10%"></div></div>
+          <div class="stars">⭐</div>
+        </div>
+        <div class="server-members">~1.05–1.7 millions</div>
+      </div>
+    </div>
+
+    <!-- Histoire à côté -->
+    <div class="histoire">
+      <h2>📖 L'histoire des serveurs Discord</h2>
+      <p>Discord a commencé en 2015 pour connecter les joueurs partout dans le monde. Les serveurs sont comme des petites villes numériques où chaque membre peut discuter, participer à des événements et monter en niveau grâce aux rôles et récompenses.</p>
+      <p>Certains serveurs commencent petits, mais grâce aux activités et à l’engagement des membres, ils deviennent des communautés très actives, rassemblant des milliers de joueurs passionnés.</p>
+      <p>Chaque serveur a sa propre vie : discussions, jeux, collaborations et parfois compétitions. Discord continue d’évoluer avec ses utilisateurs et leurs histoires uniques.</p>
+    </div>
+  </div>
+  <script>
+    // Animation des barres de progression
+    window.onload = () => {
+      const progresses = document.querySelectorAll('.progress');
+      progresses.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => { bar.style.width = width; }, 100);
+      });
+    };
+
+    // Toggle bottom section
+    const bottomSection = document.getElementById('bottomSection');
+    const homeBtn = document.getElementById('homeBtn');
+
+    homeBtn.addEventListener('click', () => {
+      bottomSection.classList.toggle('active');
+      bottomSection.scrollIntoView({behavior: "smooth"});
+    });
+  </script>
+
+</body>
+<!-- Section Contact Rapide -->
+<div class="section-box" id="quickContact">
+  <h3>📌 Contact rapide</h3>
+  <p>Tu veux me contacter directement ? Voici comment :</p>
+  <p>Discord : <a href="https://discord.com/channels/@me" target="_blank">https://discord.com/channels/@me</a></p>
+  <p>Téléphone : <a href="tel:+33 7 68 07 33 55">+33 7 68 07 33 55</a></p>
+</div>
+</html>
