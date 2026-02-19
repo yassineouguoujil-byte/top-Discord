@@ -36,10 +36,6 @@ Présente les serveurs les plus populaires avec :
 
 Explique le rôle des serveurs Discord et leur évolution depuis la création de la plateforme.
 
-### 📌 Contact
-
-Permet de contacter le créateur du site.
-
 ---
 
 ## ⚙️ Technologies utilisées
